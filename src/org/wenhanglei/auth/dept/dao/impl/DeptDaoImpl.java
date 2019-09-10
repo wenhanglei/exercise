@@ -58,4 +58,19 @@ public class DeptDaoImpl extends HibernateDaoSupport implements DeptDao {
 
     return this.getHibernateTemplate().findByCriteria(criteria);
   }
+
+  @Override
+  public List<DeptModel> findAll(DeptQueryModel dqm, Integer currentPage, Integer pageSize) {
+    DetachedCriteria criteria = DetachedCriteria.forClass(DeptModel.class);
+
+    if(dqm.getName() != null && !StringUtils.isEmpty(dqm.getName())){
+      criteria.add(Restrictions.like("name", "%" + dqm.getName().trim() + "%"));
+    }
+
+    if(dqm.getTelephone() != null && !StringUtils.isEmpty(dqm.getTelephone())){
+      criteria.add(Restrictions.like("telephone", "%" + dqm.getTelephone().trim() + "%"));
+    }
+
+    return this.getHibernateTemplate().findByCriteria(criteria, (currentPage-1)*pageSize, pageSize);
+  }
 }

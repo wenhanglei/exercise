@@ -21,4 +21,6 @@ public interface DeptDao {
   void update(DeptModel dm);
 
   List<DeptModel> findAll(DeptQueryModel dqm);
+
+  List<DeptModel> findAll(DeptQueryModel dqm, Integer currentPage, Integer pageSize);
 }

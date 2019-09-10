@@ -19,6 +19,24 @@ public class DeptAction extends ActionSupport {
 
   public DeptQueryModel dqm = new DeptQueryModel();
 
+  private Integer currentPage = 1;
+
+  private Integer pageSize = 2;
+
+  private Integer totalNum;
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public void setTotalNum(Integer totalNum) {
+    this.totalNum = totalNum;
+  }
+
   private DeptEbi deptEbi;
   public void setDeptEbi(DeptEbi deptEbi) {
     this.deptEbi = deptEbi;
@@ -40,7 +58,7 @@ public class DeptAction extends ActionSupport {
   }
 
   public String list(){
-    List<DeptModel> dmList = deptEbi.findAll();
+    List<DeptModel> dmList = deptEbi.findAll(dqm, currentPage, pageSize);
     ActionContext.getContext().put("dmList", dmList);
     return "list";
   }
@@ -50,16 +68,6 @@ public class DeptAction extends ActionSupport {
       dm = deptEbi.findById(dm.getUuid());
     }
     return "insert";
-  }
-
-  /**
-   * 条件查询部门数据
-   * @return
-   */
-  public String query(){
-    List<DeptModel> dmList = deptEbi.findAll(dqm);
-    ActionContext.getContext().put("dmList", dmList);
-    return "list";
   }
 
 }

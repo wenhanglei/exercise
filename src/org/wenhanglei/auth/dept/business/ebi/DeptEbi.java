@@ -43,4 +43,13 @@ public interface DeptEbi {
    * @return
    */
   List<DeptModel> findAll(DeptQueryModel dqm);
+
+  /**
+   * 分页查询部门列表
+   * @param dqm
+   * @param currentPage
+   * @param pageSize
+   * @return
+   */
+  List<DeptModel> findAll(DeptQueryModel dqm, Integer currentPage, Integer pageSize);
 }

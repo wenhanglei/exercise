@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<div class="content-text">
-		<s:form action="dept_query" method="post">
+		<s:form action="dept_list" method="post">
 			<div class="square-o-top">
 				<table width="100%" border="0" cellpadding="0" cellspacing="0"
 					style="font-size:14px; font-weight:bold; font-family:"黑体";">
@@ -106,6 +106,14 @@
 						<td width="12%">当前第<span style="color:red;">1</span>/3页</td>
 					</tr>
 				</table>
+					<script>
+						$(function () {
+							$("#next").click(function () {
+
+								alert("hello");
+							});
+						});
+					</script>
 				</s:else>
 			</div>
 		</s:form>

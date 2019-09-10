@@ -61,4 +61,12 @@ public class DeptEbo implements DeptEbi {
   public List<DeptModel> findAll(DeptQueryModel dqm) {
     return deptDao.findAll(dqm);
   }
+
+  /**
+   * 分页查询部门列表
+   */
+  @Override
+  public List<DeptModel> findAll(DeptQueryModel dqm, Integer currentPage, Integer pageSize) {
+    return deptDao.findAll(dqm, currentPage, pageSize);
+  }
 }
