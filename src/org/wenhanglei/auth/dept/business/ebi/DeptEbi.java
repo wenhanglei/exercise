@@ -52,4 +52,10 @@ public interface DeptEbi {
    * @return
    */
   List<DeptModel> findAll(DeptQueryModel dqm, Integer currentPage, Integer pageSize);
+
+  /**
+   * 删除部门
+   * @param dm
+   */
+  void delete(DeptModel dm);
 }

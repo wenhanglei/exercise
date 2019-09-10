@@ -73,4 +73,9 @@ public class DeptDaoImpl extends HibernateDaoSupport implements DeptDao {
 
     return this.getHibernateTemplate().findByCriteria(criteria, (currentPage-1)*pageSize, pageSize);
   }
+
+  @Override
+  public void delete(DeptModel dm) {
+    this.getHibernateTemplate().delete(dm);
+  }
 }

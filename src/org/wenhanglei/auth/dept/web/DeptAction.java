@@ -70,4 +70,9 @@ public class DeptAction extends ActionSupport {
     return "insert";
   }
 
+  public String delete(){
+    deptEbi.delete(dm);
+    return "toList";
+  }
+
 }

@@ -81,7 +81,9 @@
 								</span>
 								<img src="images/icon_04.gif" />
 								<span style="line-height:12px; text-align:center;">
-									<a href="javascript:void(0)" class="xiu" onclick="showMsg('是否删除该项数据？当前部门删除后，所有部门内的员工将被删除，同时相关数据也将删除！',318)">删除</a>
+									<s:a action="dept_delete" cssClass="xiu">删除
+                                        <s:param name="dm.uuid"><s:property value="uuid"/></s:param>
+                                    </s:a>
 								</span>
 							</td>
 						</tr>

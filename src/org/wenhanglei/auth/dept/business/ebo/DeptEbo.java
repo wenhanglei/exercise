@@ -69,4 +69,12 @@ public class DeptEbo implements DeptEbi {
   public List<DeptModel> findAll(DeptQueryModel dqm, Integer currentPage, Integer pageSize) {
     return deptDao.findAll(dqm, currentPage, pageSize);
   }
+
+  /**
+   * 删除部门
+   */
+  @Override
+  public void delete(DeptModel dm) {
+    deptDao.delete(dm);
+  }
 }
