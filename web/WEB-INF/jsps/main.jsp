@@ -145,7 +145,7 @@
 			</div>
 			<!--"left"end-->
 
-			<iframe id="frame-contect" src="context.jsp"
+			<iframe id="frame-contect" src="jsps/context.jsp"
 				style="width:848px;float:right;height:530px" scrolling="no"
 				name="main" frameborder="0"></iframe>
 			<!--"content-right"end-->
