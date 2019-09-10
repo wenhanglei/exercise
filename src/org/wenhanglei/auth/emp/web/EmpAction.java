@@ -20,7 +20,7 @@ public class EmpAction extends ActionSupport implements ModelDriven<EmpModel> {
     if(emLogin == null){
       return "login";
     }else{
-      ActionContext.getContext().getSession().put("emp", emLogin);
+      ActionContext.getContext().getSession().put(EmpModel.LOGIN_EMP_INFO, emLogin);
       return "main";
     }
   }

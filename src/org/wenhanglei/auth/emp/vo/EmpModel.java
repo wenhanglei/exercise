@@ -2,6 +2,8 @@ package org.wenhanglei.auth.emp.vo;
 
 public class EmpModel {
 
+  public final static String LOGIN_EMP_INFO = "login_emp";
+
   private Integer uuid;
 
   private String name;
