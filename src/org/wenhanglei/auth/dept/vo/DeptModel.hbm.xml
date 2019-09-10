@@ -4,13 +4,12 @@
   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="org.wenhanglei.auth.emp.vo.EmpModel" table="tbl_emp" >
+  <class name="org.wenhanglei.auth.dept.vo.DeptModel" table="tbl_dept" >
 
     <id name="uuid">
       <generator class="native"/>
     </id>
     <property name="name"/>
-    <property name="realName"/>
-    <property name="pwd"/>
+    <property name="telephone"/>
   </class>
 </hibernate-mapping>
