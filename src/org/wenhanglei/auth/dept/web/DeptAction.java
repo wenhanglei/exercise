@@ -5,6 +5,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
 import org.wenhanglei.auth.dept.business.ebi.DeptEbi;
 import org.wenhanglei.auth.dept.vo.DeptModel;
+import org.wenhanglei.auth.dept.vo.DeptQueryModel;
 
 /**
  * @author: wenhanglei
@@ -16,18 +17,26 @@ public class DeptAction extends ActionSupport {
 
   public DeptModel dm = new DeptModel();
 
+  public DeptQueryModel dqm = new DeptQueryModel();
+
   private DeptEbi deptEbi;
   public void setDeptEbi(DeptEbi deptEbi) {
     this.deptEbi = deptEbi;
   }
 
   /**
-   * 新增部门
+   * 新增部门或修改部门
    * @return
    */
   public String save(){
-    deptEbi.save(dm);
-    return "list";
+    if(dm.getUuid() == null) {
+      //如果没有传递部门id则新增部门
+      deptEbi.save(dm);
+    }else{
+      //如果传递了部门id则修改部门
+      deptEbi.update(dm);
+    }
+    return "toList";
   }
 
   public String list(){
@@ -37,6 +46,20 @@ public class DeptAction extends ActionSupport {
   }
 
   public String insert(){
+    if(dm.getUuid() != null){
+      dm = deptEbi.findById(dm.getUuid());
+    }
     return "insert";
   }
+
+  /**
+   * 条件查询部门数据
+   * @return
+   */
+  public String query(){
+    List<DeptModel> dmList = deptEbi.findAll(dqm);
+    ActionContext.getContext().put("dmList", dmList);
+    return "list";
+  }
+
 }

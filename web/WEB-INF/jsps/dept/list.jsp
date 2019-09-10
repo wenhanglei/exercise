@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<div class="content-text">
-		<form action="list.jsp" method="post">
+		<s:form action="dept_query" method="post">
 			<div class="square-o-top">
 				<table width="100%" border="0" cellpadding="0" cellspacing="0"
 					style="font-size:14px; font-weight:bold; font-family:"黑体";">
@@ -32,13 +32,17 @@
 						<td width="68" height="30">&nbsp;&nbsp;&nbsp;</td>
 						<td width="123">&nbsp;</td>
 						<td width="62">部门名称:</td>
-						<td width="142"><input type="text" size="18" /></td>
+						<td width="142">
+							<s:textfield name="dqm.name" size="18"/>
+						</td>
 						<td width="60">电话:</td>
-						<td width="149"><input type="text" size="18" /></td>
+						<td width="149">
+							<s:textfield name="dqm.telephone" size="18"/>
+						</td>
 						<td width="70"><a id="query"> <img
 								src="images/can_b_01.gif" border="0" /> </a></td>
 						<td width="70">
-							<a href="dept_insert.action">
+							<a href="pages_dept_input.action">
 								<img src="images/can_b_02.gif" border="0" />
 							</a>
 						</td>
@@ -47,9 +51,12 @@
 			</div>
 			<!--"square-o-top"end-->
 			<div class="square-order">
+				<s:if test="#dmList.size() == 0">
 				<center>
 					<span style="font-size:20px;color:#96D34A;font-weight:bold">没有查找到满足条件的数据！</span>
 				</center>
+				</s:if>
+				<s:else>
 				<table width="100%" border="1" cellpadding="0" cellspacing="0">
 					<tr align="center"
 						style="background:url(images/table_bg.gif) repeat-x;">
@@ -60,13 +67,17 @@
 					</tr>
 					<s:iterator value="dmList">
 						<tr align="center" bgcolor="#FFFFFF">
-							<td width="13%" height="30">1</td>
+							<td width="13%" height="30"><s:property value="uuid"/> </td>
 							<td><s:property value="name"/> </td>
 							<td><s:property value="telephone"/> </td>
 							<td>
 								<img src="images/icon_3.gif" />
 								<span style="line-height:12px; text-align:center;">
-									<a href="input.jsp" class="xiu">修改</a>
+									<s:a action="dept_insert" cssClass="xiu">修改
+										<s:param name="dm.uuid">
+											<s:property value="uuid"/>
+										</s:param>
+									</s:a>
 								</span>
 								<img src="images/icon_04.gif" />
 								<span style="line-height:12px; text-align:center;">
@@ -95,8 +106,9 @@
 						<td width="12%">当前第<span style="color:red;">1</span>/3页</td>
 					</tr>
 				</table>
+				</s:else>
 			</div>
-		</form>
+		</s:form>
 	</div>
 	<div class="content-bbg"></div>
 </div>

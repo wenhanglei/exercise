@@ -26,6 +26,7 @@
         <action name="dept_*" class="deptAction" method="{1}">
             <result name="list">/WEB-INF/jsps/dept/list.jsp</result>
             <result name="insert">/WEB-INF/jsps/dept/input.jsp</result>
+            <result name="toList" type="redirectAction">dept_list</result>
         </action>
 
         <action name="emp_*" class="empAction" method="{1}">
@@ -34,6 +35,10 @@
 
         <action name="login">
             <result>/WEB-INF/jsps/login.jsp</result>
+        </action>
+        
+        <action name="pages_*_*">
+            <result>/WEB-INF/jsps/{1}/{2}.jsp</result>
         </action>
 
     </package>

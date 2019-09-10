@@ -2,6 +2,7 @@ package org.wenhanglei.auth.dept.dao.dao;
 
 import java.util.List;
 import org.wenhanglei.auth.dept.vo.DeptModel;
+import org.wenhanglei.auth.dept.vo.DeptQueryModel;
 
 /**
  * @author: wenhanglei
@@ -14,4 +15,10 @@ public interface DeptDao {
   void save(DeptModel dm);
 
   List<DeptModel> findAll();
+
+  DeptModel findById(Long uuid);
+
+  void update(DeptModel dm);
+
+  List<DeptModel> findAll(DeptQueryModel dqm);
 }
