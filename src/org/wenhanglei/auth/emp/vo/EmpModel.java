@@ -1,4 +1,4 @@
-package org.wenhanglei.emp.vo;
+package org.wenhanglei.auth.emp.vo;
 
 public class EmpModel {
 

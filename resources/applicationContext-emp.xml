@@ -6,15 +6,15 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		">
 
-	<bean name="empAction" class="org.wenhanglei.emp.web.EmpAction">
+	<bean name="empAction" class="org.wenhanglei.auth.emp.web.EmpAction">
 		<property name="empEbi" ref="empEbi"/>
 	</bean>
 
-	<bean name="empEbi" class="org.wenhanglei.emp.business.ebo.EmpEbo">
+	<bean name="empEbi" class="org.wenhanglei.auth.emp.business.ebo.EmpEbo">
 		<property name="empDao" ref="empDao"/>
 	</bean>
 
-	<bean name="empDao" class="org.wenhanglei.emp.dao.impl.EmpDaoImpl">
+	<bean name="empDao" class="org.wenhanglei.auth.emp.dao.impl.EmpDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 

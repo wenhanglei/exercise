@@ -1,10 +1,10 @@
-package org.wenhanglei.emp.business.ebo;
+package org.wenhanglei.auth.emp.business.ebo;
 
 import org.springframework.transaction.annotation.Transactional;
-import org.wenhanglei.emp.business.ebi.EmpEbi;
-import org.wenhanglei.emp.dao.dao.EmpDao;
-import org.wenhanglei.emp.vo.EmpModel;
-import utils.Md5Util;
+import org.wenhanglei.auth.emp.business.ebi.EmpEbi;
+import org.wenhanglei.auth.emp.dao.dao.EmpDao;
+import org.wenhanglei.auth.emp.vo.EmpModel;
+import org.wenhanglei.utils.Md5Util;
 
 @Transactional
 public class EmpEbo implements EmpEbi {

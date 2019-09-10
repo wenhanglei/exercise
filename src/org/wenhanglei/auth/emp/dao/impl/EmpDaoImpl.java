@@ -1,9 +1,9 @@
-package org.wenhanglei.emp.dao.impl;
+package org.wenhanglei.auth.emp.dao.impl;
 
 import java.util.List;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-import org.wenhanglei.emp.dao.dao.EmpDao;
-import org.wenhanglei.emp.vo.EmpModel;
+import org.wenhanglei.auth.emp.dao.dao.EmpDao;
+import org.wenhanglei.auth.emp.vo.EmpModel;
 
 public class EmpDaoImpl extends HibernateDaoSupport implements EmpDao {
 

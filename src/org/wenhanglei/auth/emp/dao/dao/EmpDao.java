@@ -1,6 +1,6 @@
-package org.wenhanglei.emp.dao.dao;
+package org.wenhanglei.auth.emp.dao.dao;
 
-import org.wenhanglei.emp.vo.EmpModel;
+import org.wenhanglei.auth.emp.vo.EmpModel;
 
 public interface EmpDao {
   EmpModel findEmpByNameAndPwd(String name, String pwd);

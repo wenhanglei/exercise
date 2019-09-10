@@ -4,7 +4,7 @@
   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="org.wenhanglei.emp.vo.EmpModel" table="tbl_emp" >
+  <class name="org.wenhanglei.auth.emp.vo.EmpModel" table="tbl_emp" >
 
     <id name="uuid">
       <generator class="uuid"/>

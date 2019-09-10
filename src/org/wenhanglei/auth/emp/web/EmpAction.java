@@ -1,10 +1,10 @@
-package org.wenhanglei.emp.web;
+package org.wenhanglei.auth.emp.web;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import org.wenhanglei.emp.business.ebi.EmpEbi;
-import org.wenhanglei.emp.vo.EmpModel;
+import org.wenhanglei.auth.emp.business.ebi.EmpEbi;
+import org.wenhanglei.auth.emp.vo.EmpModel;
 
 public class EmpAction extends ActionSupport implements ModelDriven<EmpModel> {
 

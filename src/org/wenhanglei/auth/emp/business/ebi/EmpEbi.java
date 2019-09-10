@@ -1,6 +1,6 @@
-package org.wenhanglei.emp.business.ebi;
+package org.wenhanglei.auth.emp.business.ebi;
 
-import org.wenhanglei.emp.vo.EmpModel;
+import org.wenhanglei.auth.emp.vo.EmpModel;
 
 public interface EmpEbi {
 
