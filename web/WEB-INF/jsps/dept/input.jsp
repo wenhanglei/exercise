@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-<link href="../../css/index.css" rel="stylesheet" type="text/css" />
+<link href="css/index.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -17,7 +17,7 @@
 	</div>
 	<div class="content-text">
 		<div class="square-order">
-			<form action="list.jsp" method="post">
+			<s:form action="dept_save" method="post">
   			<div style="border:1px solid #cecece;">
 				<table width="100%"  border="0" cellpadding="0" cellspacing="0">
 				  <tr bgcolor="#FFFFFF">
@@ -28,11 +28,11 @@
 				    <tr  bgcolor="#FFFFFF">
 				      <td width="18%" height="30" align="center">部门名称</td>
 				      <td width="32%">
-				      	<input type="text" size="25"/>
+						  <s:textfield name="dm.name" size="25"/>
 				      </td>
 				      <td width="18%" align="center">电话</td>
 				      <td width="32%">
-				      	<input type="text" size="25"/>
+						  <s:textfield name="dm.telephone" size="25"/>
 				      </td>
 				    </tr>
 				    <tr  bgcolor="#FFFFFF">
@@ -46,18 +46,18 @@
 					<table width="100%"  border="0" cellpadding="0" cellspacing="0">
 					  <tr>
 					    <td>
-					    	<a href="javascript:void(0)" id="commit"><img src="../../images/order_tuo.gif" border="0" /></a>
+					    	<a href="javascript:void(0)" id="commit"><img src="images/order_tuo.gif" border="0" /></a>
 					    </td>
 					    <td>&nbsp;</td>
-					    <td><a href="#"><img src="../../images/order_tuo.gif" border="0" /></a></td>
+					    <td><a href="#"><img src="images/order_tuo.gif" border="0" /></a></td>
 					    <td>&nbsp;</td>
-					    <td><a href="#"><img src="../../images/order_tuo.gif" border="0" /></a></td>
+					    <td><a href="#"><img src="images/order_tuo.gif" border="0" /></a></td>
 					  </tr>
 					</table>
 				</div>
 			</div>
-			</form>
+			</s:form>
 		</div><!--"square-order"end-->
 	</div><!--"content-text"end-->
-	<div class="content-bbg"><img src="../../images/content_bbg.jpg" /></div>
+	<div class="content-bbg"><img src="images/content_bbg.jpg" /></div>
 </div>
