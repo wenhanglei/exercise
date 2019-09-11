@@ -7,7 +7,7 @@
 		">
 
 	<!--action-->
-	<bean name="deptAction" class="org.wenhanglei.auth.dept.web.DeptAction">
+	<bean name="deptAction" class="org.wenhanglei.auth.dept.web.DeptAction" scope="prototype">
 		<property name="deptEbi" ref="deptEbi"/>
 	</bean>
 

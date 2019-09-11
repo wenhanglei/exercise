@@ -19,23 +19,13 @@ public class DeptAction extends ActionSupport {
 
   public DeptQueryModel dqm = new DeptQueryModel();
 
-  private Integer currentPage = 1;
+  public Integer currentPage = 1;
 
-  private Integer pageSize = 2;
+  public Integer pageSize = 2;
 
-  private Integer totalNum;
+  public Integer totalNum;
 
-  public void setCurrentPage(Integer currentPage) {
-    this.currentPage = currentPage;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public void setTotalNum(Integer totalNum) {
-    this.totalNum = totalNum;
-  }
+  public Integer maxPage;
 
   private DeptEbi deptEbi;
   public void setDeptEbi(DeptEbi deptEbi) {
@@ -58,6 +48,11 @@ public class DeptAction extends ActionSupport {
   }
 
   public String list(){
+    //获取带条件查询的总页数
+    totalNum = deptEbi.getCount(dqm);
+    maxPage = (totalNum+pageSize-1)/pageSize;
+
+    //带条件查询分页数据
     List<DeptModel> dmList = deptEbi.findAll(dqm, currentPage, pageSize);
     ActionContext.getContext().put("dmList", dmList);
     return "list";

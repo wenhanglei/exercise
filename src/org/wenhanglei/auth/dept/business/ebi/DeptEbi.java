@@ -58,4 +58,11 @@ public interface DeptEbi {
    * @param dm
    */
   void delete(DeptModel dm);
+
+  /***
+   * 条件查询总记录数
+   * @param dqm
+   * @return
+   */
+  Integer getCount(DeptQueryModel dqm);
 }

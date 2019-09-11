@@ -25,4 +25,6 @@ public interface DeptDao {
   List<DeptModel> findAll(DeptQueryModel dqm, Integer currentPage, Integer pageSize);
 
   void delete(DeptModel dm);
+
+  Integer getCount(DeptQueryModel dqm);
 }

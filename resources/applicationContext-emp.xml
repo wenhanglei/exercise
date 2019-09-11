@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		">
 
-	<bean name="empAction" class="org.wenhanglei.auth.emp.web.EmpAction">
+	<bean name="empAction" class="org.wenhanglei.auth.emp.web.EmpAction" scope="prototype">
 		<property name="empEbi" ref="empEbi"/>
 	</bean>
 

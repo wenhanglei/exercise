@@ -92,7 +92,7 @@
 				<table width="100%" border="0" cellpadding="0" cellspacing="0">
 					<tr>
 						<td width="51%">&nbsp;</td>
-						<td width="13%">共24条记录
+						<td width="13%">共${totalNum}条记录
 						<td width="6%">
 							<a id="fir" class="sye">首&nbsp;&nbsp;页</a>
 						</td>
@@ -105,14 +105,58 @@
 						<td width="6%">
 							<a id="last" class="sye">末&nbsp;&nbsp;页</a>
 						</td>
-						<td width="12%">当前第<span style="color:red;">1</span>/3页</td>
+						<td width="12%">当前第<span style="color:red;">${currentPage}</span>/${maxPage}页</td>
 					</tr>
 				</table>
+					<s:hidden name="currentPage"/>
 					<script>
+						var currentPage = ${currentPage};
+						var maxPage = ${maxPage};
+
+						if(maxPage == 1){
+							$("#fir").css("display", "none");
+							$("#pre").css("display", "none");
+							$("#next").css("display", "none");
+							$("#last").css("display", "none");
+						}else if(currentPage == 1){
+							$("#fir").css("display", "none");
+							$("#pre").css("display", "none");
+							$("#next").css("display", "inline");
+							$("#last").css("display", "inline");
+						}else if(currentPage == maxPage){
+							$("#fir").css("display", "inline");
+							$("#pre").css("display", "inline");
+							$("#next").css("display", "none");
+							$("#last").css("display", "none");
+						}else{
+							$("#fir").css("display", "inline");
+							$("#pre").css("display", "inline");
+							$("#next").css("display", "inline");
+							$("#last").css("display", "inline");
+						}
+
 						$(function () {
 							$("#next").click(function () {
-
-								alert("hello");
+								$("[name='currentPage']").val($("[name='currentPage']").val()*1+1);
+								$("form:first").submit();
+							});
+						});
+						$(function () {
+							$("#pre").click(function () {
+								$("[name='currentPage']").val($("[name='currentPage']").val()-1);
+								$("form:first").submit();
+							});
+						});
+						$(function () {
+							$("#fir").click(function () {
+								$("[name='currentPage']").val(1);
+								$("form:first").submit();
+							});
+						});
+						$(function () {
+							$("#last").click(function () {
+								$("[name='currentPage']").val(${maxPage});
+								$("form:first").submit();
 							});
 						});
 					</script>

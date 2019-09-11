@@ -6,6 +6,7 @@ import javafx.scene.shape.HLineTo;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.wenhanglei.auth.dept.dao.dao.DeptDao;
@@ -77,5 +78,23 @@ public class DeptDaoImpl extends HibernateDaoSupport implements DeptDao {
   @Override
   public void delete(DeptModel dm) {
     this.getHibernateTemplate().delete(dm);
+  }
+
+  @Override
+  public Integer getCount(DeptQueryModel dqm) {
+    DetachedCriteria criteria = DetachedCriteria.forClass(DeptModel.class);
+
+    criteria.setProjection(Projections.rowCount());
+
+    if(dqm.getName() != null && !StringUtils.isEmpty(dqm.getName())){
+      criteria.add(Restrictions.like("name", "%" + dqm.getName().trim() + "%"));
+    }
+
+    if(dqm.getTelephone() != null && !StringUtils.isEmpty(dqm.getTelephone())){
+      criteria.add(Restrictions.like("telephone", "%" + dqm.getTelephone().trim() + "%"));
+    }
+
+    List<Long> list = this.getHibernateTemplate().findByCriteria(criteria);
+    return list.get(0).intValue();
   }
 }

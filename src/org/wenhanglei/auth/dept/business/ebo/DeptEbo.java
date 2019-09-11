@@ -77,4 +77,14 @@ public class DeptEbo implements DeptEbi {
   public void delete(DeptModel dm) {
     deptDao.delete(dm);
   }
+
+  /***
+   * 条件查询总记录数
+   * @param dqm
+   * @return
+   */
+  @Override
+  public Integer getCount(DeptQueryModel dqm) {
+    return deptDao.getCount(dqm);
+  }
 }
