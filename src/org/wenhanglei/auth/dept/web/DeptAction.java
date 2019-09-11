@@ -21,7 +21,7 @@ public class DeptAction extends ActionSupport {
 
   public Integer currentPage = 1;
 
-  public Integer pageSize = 2;
+  public Integer pageSize = 10;
 
   public Integer totalNum;
 

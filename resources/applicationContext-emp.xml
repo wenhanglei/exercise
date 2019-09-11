@@ -8,6 +8,7 @@
 
 	<bean name="empAction" class="org.wenhanglei.auth.emp.web.EmpAction" scope="prototype">
 		<property name="empEbi" ref="empEbi"/>
+		<property name="deptEbi" ref="deptEbi"/>
 	</bean>
 
 	<bean name="empEbi" class="org.wenhanglei.auth.emp.business.ebo.EmpEbo">

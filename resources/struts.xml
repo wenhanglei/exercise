@@ -31,6 +31,8 @@
 
         <action name="emp_*" class="empAction" method="{1}">
             <result name="main">/WEB-INF/jsps/main.jsp</result>
+            <result name="list">/WEB-INF/jsps/emp/list.jsp</result>
+            <result name="input">/WEB-INF/jsps/emp/input.jsp</result>
         </action>
 
         <action name="login">

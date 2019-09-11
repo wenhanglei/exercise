@@ -11,6 +11,10 @@
     </id>
     <property name="name"/>
     <property name="realName"/>
+    <property name="telephone"/>
+    <property name="sex"/>
+    <property name="email"/>
+    <property name="loginTime"/>
     <property name="pwd"/>
   </class>
 </hibernate-mapping>
