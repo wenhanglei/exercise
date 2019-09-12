@@ -16,7 +16,9 @@
     <property name="birthday"/>
     <property name="email"/>
     <property name="address"/>
-    <property name="loginTime"/>
+    <property name="lastLoginTime"/>
+    <property name="lastLoginIp"/>
+    <property name="loginTimes"/>
     <property name="pwd"/>
     <many-to-one name="dept" column="deptId" class="org.wenhanglei.auth.dept.vo.DeptModel"></many-to-one>
   </class>

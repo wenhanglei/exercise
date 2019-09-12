@@ -26,7 +26,7 @@
 		</div>
 	</div>
 	<div class="content-text">
-		<form action="list.jsp" method="post">
+		<s:form action="emp_list" method="post">
 			<div class="square-o-top">
 				<table width="100%" border="0" cellpadding="0" cellspacing="0"
 					style="font-size:14px; font-weight:bold; font-family:"黑体";">
@@ -96,11 +96,13 @@
 							<td>${telephone}</td>
 							<td>${email}</td>
 							<td>${dept.name}</td>
-							<td>${loginTime}</td>
+							<td>${lastLoginTime}</td>
 							<td>
 								<img src="images/icon_3.gif" />
 								<span style="line-height:12px; text-align:center;">
-									<a href="./input.jsp" class="xiu">修改</a>
+									<s:a action="emp_preInput" cssClass="xiu">修改
+										<s:param name="em.uuid">${uuid}</s:param>
+									</s:a>
 								</span>
 								<img src="images/icon_04.gif" />
 								<span style="line-height:12px; text-align:center;">
@@ -110,8 +112,81 @@
 						</tr>
 					</s:iterator>
 				</table>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="51%">&nbsp;</td>
+						<td width="13%">共${totalNum}条记录
+						<td width="6%">
+							<a id="fir" class="sye">首&nbsp;&nbsp;页</a>
+						</td>
+						<td width="6%">
+							<a id="pre" class="sye">上一页</a>
+						</td>
+						<td width="6%">
+							<a id="next" class="sye">下一页</a>
+						</td>
+						<td width="6%">
+							<a id="last" class="sye">末&nbsp;&nbsp;页</a>
+						</td>
+						<td width="12%">当前第<span style="color:red;">${currentPage}</span>/${maxPage}页</td>
+					</tr>
+				</table>
+
+				<s:hidden name="currentPage"/>
+				<script>
+					var currentPage = ${currentPage};
+					var maxPage = ${maxPage};
+
+					if(maxPage == 1){
+						$("#fir").css("display", "none");
+						$("#pre").css("display", "none");
+						$("#next").css("display", "none");
+						$("#last").css("display", "none");
+					}else if(currentPage == 1){
+						$("#fir").css("display", "none");
+						$("#pre").css("display", "none");
+						$("#next").css("display", "inline");
+						$("#last").css("display", "inline");
+					}else if(currentPage == maxPage){
+						$("#fir").css("display", "inline");
+						$("#pre").css("display", "inline");
+						$("#next").css("display", "none");
+						$("#last").css("display", "none");
+					}else{
+						$("#fir").css("display", "inline");
+						$("#pre").css("display", "inline");
+						$("#next").css("display", "inline");
+						$("#last").css("display", "inline");
+					}
+
+					$(function () {
+						$("#next").click(function () {
+							$("[name='currentPage']").val($("[name='currentPage']").val()*1+1);
+							$("form:first").submit();
+						});
+					});
+					$(function () {
+						$("#pre").click(function () {
+							$("[name='currentPage']").val($("[name='currentPage']").val()-1);
+							$("form:first").submit();
+						});
+					});
+					$(function () {
+						$("#fir").click(function () {
+							$("[name='currentPage']").val(1);
+							$("form:first").submit();
+						});
+					});
+					$(function () {
+						$("#last").click(function () {
+							$("[name='currentPage']").val(${maxPage});
+							$("form:first").submit();
+						});
+					});
+				</script>
+
 			</div>
-		</form>
+		</s:form>
 	</div>
 	<div class="content-bbg"></div>
 </div>

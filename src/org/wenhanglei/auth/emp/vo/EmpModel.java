@@ -50,7 +50,17 @@ public class EmpModel {
   /**
    * 上次登录时间
    */
-  private Date loginTime;
+  private Date lastLoginTime;
+
+  /**
+   * 登录ip
+   */
+  private String lastLoginIp;
+
+  /**
+   * 登录次数
+   */
+  private Integer loginTimes;
 
   /**
    * 用户密码
@@ -126,12 +136,28 @@ public class EmpModel {
     this.address = address;
   }
 
-  public Date getLoginTime() {
-    return loginTime;
+  public Date getLastLoginTime() {
+    return lastLoginTime;
   }
 
-  public void setLoginTime(Date loginTime) {
-    this.loginTime = loginTime;
+  public void setLastLoginTime(Date lastLoginTime) {
+    this.lastLoginTime = lastLoginTime;
+  }
+
+  public String getLastLoginIp() {
+    return lastLoginIp;
+  }
+
+  public void setLastLoginIp(String lastLoginIp) {
+    this.lastLoginIp = lastLoginIp;
+  }
+
+  public Integer getLoginTimes() {
+    return loginTimes;
+  }
+
+  public void setLoginTimes(Integer loginTimes) {
+    this.loginTimes = loginTimes;
   }
 
   public String getPwd() {
