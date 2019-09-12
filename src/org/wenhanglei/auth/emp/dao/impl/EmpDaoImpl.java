@@ -16,4 +16,15 @@ public class EmpDaoImpl extends HibernateDaoSupport implements EmpDao {
     }
     return null;
   }
+
+  @Override
+  public void save(EmpModel em) {
+    this.getHibernateTemplate().save(em);
+  }
+
+  @Override
+  public List<EmpModel> findAll() {
+    String hql = "from EmpModel";
+    return this.getHibernateTemplate().find(hql);
+  }
 }

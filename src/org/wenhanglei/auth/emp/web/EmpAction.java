@@ -2,14 +2,13 @@ package org.wenhanglei.auth.emp.web;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 import java.util.List;
 import org.wenhanglei.auth.dept.business.ebi.DeptEbi;
 import org.wenhanglei.auth.dept.vo.DeptModel;
 import org.wenhanglei.auth.emp.business.ebi.EmpEbi;
 import org.wenhanglei.auth.emp.vo.EmpModel;
 
-public class EmpAction extends ActionSupport implements ModelDriven<EmpModel> {
+public class EmpAction extends ActionSupport {
 
   public EmpModel em = new EmpModel();
 
@@ -43,7 +42,20 @@ public class EmpAction extends ActionSupport implements ModelDriven<EmpModel> {
   public String list(){
     prepareDeptList();
 
+    List<EmpModel> empList = empEbi.findAll();
+    ActionContext.getContext().put("empList", empList);
+
     return "list";
+  }
+
+  /**
+   * 新增员工
+   * @return
+   */
+  public String save(){
+    empEbi.save(em);
+
+    return "toList";
   }
 
   /**
@@ -54,12 +66,6 @@ public class EmpAction extends ActionSupport implements ModelDriven<EmpModel> {
     prepareDeptList();
 
     return "input";
-  }
-
-
-  @Override
-  public EmpModel getModel() {
-    return em;
   }
 
   private void prepareDeptList() {

@@ -1,5 +1,6 @@
 package org.wenhanglei.auth.emp.business.ebo;
 
+import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 import org.wenhanglei.auth.emp.business.ebi.EmpEbi;
 import org.wenhanglei.auth.emp.dao.dao.EmpDao;
@@ -22,5 +23,21 @@ public class EmpEbo implements EmpEbi {
     pwd = Md5Util.getMD5String(pwd);
     EmpModel empLogin = empDao.findEmpByNameAndPwd(name, pwd);
     return empLogin;
+  }
+
+  /**
+   * 新增员工
+   */
+  @Override
+  public void save(EmpModel em) {
+    empDao.save(em);
+  }
+
+  /**
+   * 查询所有员工
+   */
+  @Override
+  public List<EmpModel> findAll() {
+    return empDao.findAll();
   }
 }

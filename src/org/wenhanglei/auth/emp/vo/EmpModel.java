@@ -1,6 +1,7 @@
 package org.wenhanglei.auth.emp.vo;
 
 import java.util.Date;
+import org.wenhanglei.auth.dept.vo.DeptModel;
 
 public class EmpModel {
 
@@ -32,6 +33,11 @@ public class EmpModel {
   private String sex;
 
   /**
+   * 生日
+   */
+  private Date birthday;
+
+  /**
    * 电子邮箱
    */
   private String email;
@@ -50,6 +56,11 @@ public class EmpModel {
    * 用户密码
    */
   private String pwd;
+
+  /**
+   * 员工所属部门
+   */
+  private DeptModel dept = new DeptModel();
 
   public Integer getUuid() {
     return uuid;
@@ -91,6 +102,14 @@ public class EmpModel {
     this.sex = sex;
   }
 
+  public Date getBirthday() {
+    return birthday;
+  }
+
+  public void setBirthday(Date birthday) {
+    this.birthday = birthday;
+  }
+
   public String getEmail() {
     return email;
   }
@@ -121,5 +140,13 @@ public class EmpModel {
 
   public void setPwd(String pwd) {
     this.pwd = pwd;
+  }
+
+  public DeptModel getDept() {
+    return dept;
+  }
+
+  public void setDept(DeptModel dept) {
+    this.dept = dept;
   }
 }

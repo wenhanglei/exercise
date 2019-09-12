@@ -24,7 +24,7 @@
 	</div>
 	<div class="content-text">
 		<div class="square-order">
-			<s:form action="emp_list" method="post">
+			<s:form action="emp_save" method="post">
   			<div style="border:1px solid #cecece;">
 				<table width="100%"  border="0" cellpadding="0" cellspacing="0">
 				  <tr bgcolor="#FFFFFF">
@@ -65,7 +65,7 @@
 					  </td>
 				      <td align="center">电话号码</td>
 				      <td>
-						  <s:textfield name="telephone" size="25"/>
+						  <s:textfield name="em.telephone" size="25"/>
 					  </td>
 				     </tr>
 				      <tr bgcolor="#FFFFFF">
@@ -95,7 +95,7 @@
 					  </td>
 				      <td align="center">所属部门</td>
 				      <td>
-				      	<select name="em.deptId" style="width:190px">
+				      	<select name="em.dept.uuid" style="width:190px">
 							<option value="-1">----请-选-择----</option>
 							<s:iterator value="deptList">
 								<option value="${uuid}">${name}</option>

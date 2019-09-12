@@ -11,5 +11,9 @@
     </id>
     <property name="name"/>
     <property name="telephone"/>
+    <set name="empList" table="tbl_emp">
+      <key column="deptId"></key>
+      <one-to-many class="org.wenhanglei.auth.emp.vo.EmpModel"/>
+    </set>
   </class>
 </hibernate-mapping>

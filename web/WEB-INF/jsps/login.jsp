@@ -28,13 +28,13 @@
                     <tr>
                         <td width="19%" height="28">用户名：</td>
                         <td colspan="2">
-                            <input name="name" value="admin" type="text" size="18"/>
+                            <input name="em.name" value="admin" type="text" size="18"/>
                         </td>
                     </tr>
                     <tr>
                         <td height="31">密&nbsp;&nbsp;码：</td>
                         <td colspan="2">
-                            <input name="pwd" value="admin" type="test" size="18"/>
+                            <input name="em.pwd" value="admin" type="test" size="18"/>
                         </td>
                     </tr>
                     <tr>
