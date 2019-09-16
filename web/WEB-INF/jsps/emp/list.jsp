@@ -32,17 +32,23 @@
 					style="font-size:14px; font-weight:bold; font-family:"黑体";">
 					<tr>
 						<td height="30">用&nbsp;户&nbsp;名</td>
-						<td><input type="text" size="14" /></td>
+						<td>
+							<s:textfield name="eqm.name" size="14"/>
+						</td>
 						<td>真实姓名</td>
-						<td><input type="text" size="14" /></td>
+						<td>
+							<s:textfield name="eqm.realName" size="14"/>
+						</td>
 						<td>电&nbsp;&nbsp;&nbsp;&nbsp;话</td>
-						<td><input type="text" size="14" /></td>
+						<td>
+							<s:textfield name="eqm.telephone" size="14"/>
+						</td>
 						<td>性&nbsp;&nbsp;&nbsp;&nbsp;别</td>
 						<td>
-							<select class="kuan">
-								<option value="-1">----请-选-择----</option>
-								<option value="1">男</option>
-								<option value="0">女</option>
+							<select name="eqm.sex" class="kuan">
+								<option value="">----请-选-择----</option>
+								<option value="1" ${eqm.sex == 1?"selected":""}>男</option>
+								<option value="0" ${eqm.sex == 0?"selected":""}>女</option>
 							</select>
 						</td>
 							
@@ -50,21 +56,25 @@
 					</tr>
 					<tr>
 						<td  height="30">电子邮件</td>
-						<td><input type="text" size="14" /></td>
-						<td>登录时间</td>
 						<td>
-							<input type="text"  size="14" onfocus="c.showMoreDay=false;c.show(this);" readonly="true"/>
+							<s:textfield name="eqm.email" size="14"/>
 						</td>
 						<td>登录时间</td>
 						<td>
-							<input type="text" size="14" onfocus="c.showMoreDay=false;c.show(this);" readonly="true"/>
+							<s:date name="eqm.lastLoginTime" format="yyyy-MM-dd" var="lastLoginDate"/>
+							<s:textfield name="eqm.lastLoginTime" value="%{lastLoginDate}" onfocus="c.showMoreDay=false;c.show(this);" readonly="true" size="14"/>
+						</td>
+						<td>登录时间</td>
+						<td>
+							<s:date name="eqm.toLastLoginTime" format="yyyy-MM-dd" var="toLastLoginDate"/>
+							<s:textfield name="eqm.lastLoginTimeTo" value="%{toLastLoginDate}" onfocus="c.showMoreDay=false;c.show(this);" readonly="true" size="14"/>
 						</td>
 						<td>部门名称</td>
 						<td>
-							<select class="kuan">
-								<option value="-1">----请-选-择----</option>
+							<select name="eqm.dept.uuid" class="kuan">
+								<option value="">----请-选-择----</option>
 								<s:iterator value="deptList">
-									<option value="${uuid}">${name}</option>
+									<option value="${uuid}" ${eqm.uuid == uuid?"selected":""}>${name}</option>
 								</s:iterator>
 							</select>
 						</td>

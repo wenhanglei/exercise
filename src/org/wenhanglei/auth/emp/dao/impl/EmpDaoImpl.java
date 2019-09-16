@@ -1,8 +1,10 @@
 package org.wenhanglei.auth.emp.dao.impl;
 
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.wenhanglei.auth.emp.dao.dao.EmpDao;
 import org.wenhanglei.auth.emp.vo.EmpModel;
@@ -23,8 +25,6 @@ public class EmpDaoImpl extends HibernateDaoSupport implements EmpDao {
 
   @Override
   public void save(EmpModel em) {
-    //对员工密码进行加密
-    em.setPwd(Md5Util.getMD5String(em.getPwd()));
     this.getHibernateTemplate().save(em);
   }
 
@@ -38,6 +38,34 @@ public class EmpDaoImpl extends HibernateDaoSupport implements EmpDao {
   public List<EmpModel> findAll(EmpQueryModel eqm, Integer currentPage, Integer pageSize) {
     DetachedCriteria criteria = DetachedCriteria.forClass(EmpModel.class);
 
+    //组合查询条件
+    if(eqm.getName() != null && !StringUtils.isEmpty(eqm.getName().trim())){
+      criteria.add(Restrictions.like("name", "%" + eqm.getName().trim() + "%"));
+    }
+
+    if(eqm.getRealName() != null && !StringUtils.isEmpty(eqm.getRealName().trim())){
+      criteria.add(Restrictions.like("realName", "%" + eqm.getRealName() + "%"));
+    }
+
+    if(eqm.getTelephone() != null && !StringUtils.isEmpty(eqm.getTelephone().trim())){
+      criteria.add(Restrictions.like("telephone", "%" + eqm.getTelephone() + "%"));
+    }
+
+    if(eqm.getSex() != null){
+      criteria.add(Restrictions.eq("sex", eqm.getSex()));
+    }
+
+    if(eqm.getEmail() != null && !StringUtils.isEmpty(eqm.getEmail().trim())){
+      criteria.add(Restrictions.like("email", "%" + eqm.getEmail().trim() + "%"));
+    }
+
+    if(eqm.getLastLoginTime() != null && eqm.getLastLoginTimeTo() != null){
+      criteria.add(Restrictions.between("lastLoginTime", eqm.getLastLoginTime(), eqm.getLastLoginTimeTo()));
+    }
+
+
+
+
     return this.getHibernateTemplate().findByCriteria(criteria, (currentPage-1)*pageSize, pageSize);
   }
 
@@ -46,6 +74,31 @@ public class EmpDaoImpl extends HibernateDaoSupport implements EmpDao {
     DetachedCriteria criteria = DetachedCriteria.forClass(EmpModel.class);
 
     criteria.setProjection(Projections.rowCount());
+
+    //组合查询条件
+    if(eqm.getName() != null && !StringUtils.isEmpty(eqm.getName().trim())){
+      criteria.add(Restrictions.like("name", "%" + eqm.getName().trim() + "%"));
+    }
+
+    if(eqm.getRealName() != null && !StringUtils.isEmpty(eqm.getRealName().trim())){
+      criteria.add(Restrictions.like("realName", "%" + eqm.getRealName() + "%"));
+    }
+
+    if(eqm.getTelephone() != null && !StringUtils.isEmpty(eqm.getTelephone().trim())){
+      criteria.add(Restrictions.like("telephone", "%" + eqm.getTelephone() + "%"));
+    }
+
+    if(eqm.getSex() != null){
+      criteria.add(Restrictions.eq("sex", eqm.getSex()));
+    }
+
+    if(eqm.getEmail() != null && !StringUtils.isEmpty(eqm.getEmail().trim())){
+      criteria.add(Restrictions.like("email", "%" + eqm.getEmail().trim() + "%"));
+    }
+
+    if(eqm.getLastLoginTime() != null && eqm.getLastLoginTimeTo() != null){
+      criteria.add(Restrictions.between("lastLoginTime", eqm.getLastLoginTime(), eqm.getLastLoginTimeTo()));
+    }
 
     List<Long> list = this.getHibernateTemplate().findByCriteria(criteria);
 
