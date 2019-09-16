@@ -13,6 +13,7 @@
 
 	<bean name="empEbi" class="org.wenhanglei.auth.emp.business.ebo.EmpEbo">
 		<property name="empDao" ref="empDao"/>
+		<property name="deptDao" ref="deptDao"/>
 	</bean>
 
 	<bean name="empDao" class="org.wenhanglei.auth.emp.dao.impl.EmpDaoImpl">

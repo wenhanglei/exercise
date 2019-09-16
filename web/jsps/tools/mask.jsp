@@ -205,8 +205,8 @@
 		<input id="hid-action" type="hidden" value=""/>
 		<div class="context-msg-btn">
 			<center>
-			<input id="btn_ok" type="image" src="../images/content_msg_btn_ok.jpg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input id="btn_cancel" type="image" src="../images/content_msg_btn_cancel.jpg"/>
+			<input id="btn_ok" type="image" src="images/content_msg_btn_ok.jpg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="btn_cancel" type="image" src="images/content_msg_btn_cancel.jpg"/>
 			</center>
 		</div>
 	</div>

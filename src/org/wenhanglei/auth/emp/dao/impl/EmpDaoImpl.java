@@ -7,6 +7,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.wenhanglei.auth.emp.dao.dao.EmpDao;
 import org.wenhanglei.auth.emp.vo.EmpModel;
 import org.wenhanglei.auth.emp.vo.EmpQueryModel;
+import org.wenhanglei.utils.Md5Util;
 
 public class EmpDaoImpl extends HibernateDaoSupport implements EmpDao {
 
@@ -22,6 +23,8 @@ public class EmpDaoImpl extends HibernateDaoSupport implements EmpDao {
 
   @Override
   public void save(EmpModel em) {
+    //对员工密码进行加密
+    em.setPwd(Md5Util.getMD5String(em.getPwd()));
     this.getHibernateTemplate().save(em);
   }
 
@@ -54,5 +57,10 @@ public class EmpDaoImpl extends HibernateDaoSupport implements EmpDao {
     String hql = "from EmpModel em where em.uuid = ?";
     List<EmpModel> list = this.getHibernateTemplate().find(hql, uuid);
     return list.size()>0?list.get(0):null;
+  }
+
+  @Override
+  public void delete(EmpModel em) {
+    this.getHibernateTemplate().delete(em);
   }
 }

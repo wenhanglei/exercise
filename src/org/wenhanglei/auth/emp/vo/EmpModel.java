@@ -2,6 +2,7 @@ package org.wenhanglei.auth.emp.vo;
 
 import java.util.Date;
 import org.wenhanglei.auth.dept.vo.DeptModel;
+import org.wenhanglei.utils.Md5Util;
 
 public class EmpModel {
 
@@ -30,7 +31,7 @@ public class EmpModel {
   /**
    * 性别
    */
-  private String sex;
+  private Integer sex;
 
   /**
    * 生日
@@ -104,11 +105,11 @@ public class EmpModel {
     this.telephone = telephone;
   }
 
-  public String getSex() {
+  public Integer getSex() {
     return sex;
   }
 
-  public void setSex(String sex) {
+  public void setSex(Integer sex) {
     this.sex = sex;
   }
 

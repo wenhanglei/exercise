@@ -20,7 +20,7 @@ public class EmpAction extends ActionSupport {
 
   public Integer currentPage = 1;
 
-  public Integer pageSize = 2;
+  public Integer pageSize = 5;
 
   public Integer totalNum;
 
@@ -74,8 +74,12 @@ public class EmpAction extends ActionSupport {
    * @return
    */
   public String save(){
-    empEbi.save(em);
-
+    //如果员工uuid不为空则表示修改员工数据，否则新增员工
+    if(em.getUuid() != null){
+      empEbi.update(em);
+    }else {
+      empEbi.save(em);
+    }
     return "toList";
   }
 
@@ -89,6 +93,16 @@ public class EmpAction extends ActionSupport {
     em = empEbi.findById(em.getUuid());
 
     return "input";
+  }
+
+  /**
+   * 删除员工
+   * @return
+   */
+  public String delete(){
+    empEbi.delete(em);
+
+    return "toList";
   }
 
   private void prepareDeptList() {

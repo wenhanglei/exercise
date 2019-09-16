@@ -49,11 +49,11 @@
 				    <tr  bgcolor="#FFFFFF">
 				      <td align="center">密&nbsp;&nbsp;&nbsp;&nbsp;码</td>
 				      <td>
-						  <s:textfield name="em.pwd" size="25"/>
+						  <s:password name="em.pwd" size="25"/>
 				      </td>
 				      <td  align="center">确认密码</td>
 				      <td >
-				      	<input type="text" size="25"/>
+				      	<input type="password" size="25"/>
 				      </td>
 				    </tr>
 				     <tr bgcolor="#FFFFFF">
@@ -77,8 +77,8 @@
 				      <td>
 				      	<select name="em.sex" style="width:190px">
 								<option value="-1">----请-选-择----</option>
-								<option value="1">男</option>
-								<option value="0">女</option>
+								<option value="1" ${em.sex == 1? 'selected':''}>男</option>
+								<option value="0" ${em.sex == 0? 'selected':''}>女</option>
 						</select>
 					  </td>
 				      <td align="center">地&nbsp;&nbsp;&nbsp;&nbsp;址</td>
@@ -92,14 +92,15 @@
 				    <tr  bgcolor="#FFFFFF">
 				      <td height="30" align="center">出生日期</td>
 				      <td>
-						  <s:textfield name="em.birthday" size="25" onfocus="c.showMoreDay=false;c.show(this);" readonly="true"/>
+						  <s:date name="em.birthday" format="yyyy-MM-dd" var="birthdayDate"/>
+						  <s:textfield name="em.birthday" size="25" value="%{birthdayDate}" onfocus="c.showMoreDay=false;c.show(this);" readonly="true"/>
 					  </td>
 				      <td align="center">所属部门</td>
 				      <td>
 				      	<select name="em.dept.uuid" style="width:190px">
 							<option value="-1">----请-选-择----</option>
 							<s:iterator value="deptList">
-								<option value="${uuid}">${name}</option>
+								<option value="${uuid}" ${em.dept.uuid == uuid?'selected':''}>${name}</option>
 							</s:iterator>
 						</select>
 					  </td>

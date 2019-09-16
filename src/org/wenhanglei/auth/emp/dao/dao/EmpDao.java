@@ -16,4 +16,6 @@ public interface EmpDao {
   Integer getCount(EmpQueryModel eqm);
 
   EmpModel findById(Integer uuid);
+
+  void delete(EmpModel em);
 }

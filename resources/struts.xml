@@ -21,7 +21,12 @@
 
         <global-results>
             <result name="nologin">/WEB-INF/jsps/login.jsp</result>
+            <result name="error">/WEB-INF/jsps/error.jsp</result>
         </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"></exception-mapping>
+        </global-exception-mappings>
 
         <action name="dept_*" class="deptAction" method="{1}">
             <result name="list">/WEB-INF/jsps/dept/list.jsp</result>

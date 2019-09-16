@@ -49,4 +49,16 @@ public interface EmpEbi {
    * @return
    */
   EmpModel findById(Integer uuid);
+
+  /**
+   * 修改员工数据
+   * @param em
+   */
+  void update(EmpModel em);
+
+  /**
+   * 删除员工
+   * @param em
+   */
+  void delete(EmpModel em);
 }
