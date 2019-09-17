@@ -120,6 +120,15 @@ public class EmpAction extends ActionSupport {
     return "login";
   }
 
+  /**
+   * 注销登录
+   * @return
+   */
+  public String logout(){
+    ActionContext.getContext().getSession().remove(EmpModel.LOGIN_EMP_INFO);
+    return "login";
+  }
+
   private void prepareDeptList() {
     //查询所有部门
     List<DeptModel> deptList = deptEbi.findAll();

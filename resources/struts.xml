@@ -28,18 +28,35 @@
             <exception-mapping exception="java.lang.Exception" result="error"></exception-mapping>
         </global-exception-mappings>
 
+        <!--部门-->
         <action name="dept_*" class="deptAction" method="{1}">
             <result name="list">/WEB-INF/jsps/dept/list.jsp</result>
             <result name="insert">/WEB-INF/jsps/dept/input.jsp</result>
             <result name="toList" type="redirectAction">dept_list</result>
         </action>
 
+        <!--职员-->
         <action name="emp_*" class="empAction" method="{1}">
             <result name="main">/WEB-INF/jsps/main.jsp</result>
             <result name="toLogin" type="redirectAction">login</result>
             <result name="list">/WEB-INF/jsps/emp/list.jsp</result>
             <result name="toList" type="redirectAction">emp_list</result>
             <result name="input">/WEB-INF/jsps/emp/input.jsp</result>
+        </action>
+
+        <!--角色-->
+        <action name="role_*" class="roleAction" method="{1}">
+            <result name="list">/WEB-INF/jsps/role/list.jsp</result>
+        </action>
+
+        <!--资源-->
+        <action name="resource_*" class="resourceAction" method="{1}">
+            <result name="list">/WEB-INF/jsps/resource/list.jsp</result>
+        </action>
+
+        <!--菜单-->
+        <action name="menu_*" class="menuAction" method="{1}">
+            <result name="list">/WEB-INF/jsps/menu/list.jsp</result>
         </action>
 
         <action name="login">

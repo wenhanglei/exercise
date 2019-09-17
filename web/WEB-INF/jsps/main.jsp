@@ -24,9 +24,9 @@
 							</a>
 						</td>
 						<td width="26%">
-							<a href="index2.jsp">
+							<s:a action="emp_logout">
 								<img src="images/head-m.gif" border="0" />
-							</a>
+							</s:a>
 						</td>
 						<td width="7%">&nbsp;</td>
 						<td width="35%"><a href="#"><img src="images/head-r.gif"
@@ -128,13 +128,13 @@
 								<td><a class="hei" target="main" href="emp_list.action">&nbsp;&nbsp;&nbsp;&nbsp;员工维护</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="role/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;角色维护</a></td>
+								<td><a class="hei" target="main" href="role_list.action">&nbsp;&nbsp;&nbsp;&nbsp;角色维护</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="resource/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;资源维护</a></td>
+								<td><a class="hei" target="main" href="resource_list.action">&nbsp;&nbsp;&nbsp;&nbsp;资源维护</a></td>
 							</tr>
 							<tr>
-								<td><a class="hei" target="main" href="menu/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;菜单维护</a></td>
+								<td><a class="hei" target="main" href="menu_list.action">&nbsp;&nbsp;&nbsp;&nbsp;菜单维护</a></td>
 							</tr>
 							<tr>
 								<td><a class="hei" target="main" href="store/list.jsp">&nbsp;&nbsp;&nbsp;&nbsp;仓库管理</a></td>

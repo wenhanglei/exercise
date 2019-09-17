@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		">
+
+	<bean name="roleAction" class="org.wenhanglei.auth.role.web.RoleAction" scope="prototype">
+		<property name="roleEbi" ref="roleEbi"/>
+	</bean>
+
+	<bean name="roleEbi" class="org.wenhanglei.auth.role.business.ebo.RoleEbo">
+		<property name="roleDao" ref="roleDao"/>
+	</bean>
+
+	<bean name="roleDao" class="org.wenhanglei.auth.role.dao.impl.RoleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+</beans>
+	
