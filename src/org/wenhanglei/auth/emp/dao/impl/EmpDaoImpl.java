@@ -63,8 +63,9 @@ public class EmpDaoImpl extends HibernateDaoSupport implements EmpDao {
       criteria.add(Restrictions.between("lastLoginTime", eqm.getLastLoginTime(), eqm.getLastLoginTimeTo()));
     }
 
-
-
+    if(eqm.getDept() != null && eqm.getDept().getUuid() != null){
+      criteria.add(Restrictions.eq("dept.uuid", eqm.getDept().getUuid()));
+    }
 
     return this.getHibernateTemplate().findByCriteria(criteria, (currentPage-1)*pageSize, pageSize);
   }
@@ -98,6 +99,10 @@ public class EmpDaoImpl extends HibernateDaoSupport implements EmpDao {
 
     if(eqm.getLastLoginTime() != null && eqm.getLastLoginTimeTo() != null){
       criteria.add(Restrictions.between("lastLoginTime", eqm.getLastLoginTime(), eqm.getLastLoginTimeTo()));
+    }
+
+    if(eqm.getDept() != null && eqm.getDept().getUuid() != null){
+      criteria.add(Restrictions.eq("dept.uuid", eqm.getDept().getUuid()));
     }
 
     List<Long> list = this.getHibernateTemplate().findByCriteria(criteria);

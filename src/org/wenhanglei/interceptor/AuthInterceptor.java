@@ -27,7 +27,7 @@ public class AuthInterceptor  extends AbstractInterceptor {
     EmpModel loginEmp = (EmpModel) ActionContext.getContext().getSession().get(EmpModel.LOGIN_EMP_INFO);
     if(loginEmp == null){
       //如果session中没有登录用户则跳转到登录页面
-      return "nologin";
+      return "login";
     }
 
     //如果session中有登录用户的信息则放行

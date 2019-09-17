@@ -20,7 +20,7 @@
         <default-interceptor-ref name="auth"></default-interceptor-ref>
 
         <global-results>
-            <result name="nologin">/WEB-INF/jsps/login.jsp</result>
+            <result name="login">/WEB-INF/jsps/login.jsp</result>
             <result name="error">/WEB-INF/jsps/error.jsp</result>
         </global-results>
 
@@ -36,6 +36,7 @@
 
         <action name="emp_*" class="empAction" method="{1}">
             <result name="main">/WEB-INF/jsps/main.jsp</result>
+            <result name="toLogin" type="redirectAction">login</result>
             <result name="list">/WEB-INF/jsps/emp/list.jsp</result>
             <result name="toList" type="redirectAction">emp_list</result>
             <result name="input">/WEB-INF/jsps/emp/input.jsp</result>

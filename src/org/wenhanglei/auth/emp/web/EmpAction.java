@@ -26,6 +26,10 @@ public class EmpAction extends ActionSupport {
 
   public Integer maxPage;
 
+  public String oldPwd;
+
+  public String newPwd;
+
   private DeptEbi deptEbi;
   public void setDeptEbi(DeptEbi deptEbi) {
     this.deptEbi = deptEbi;
@@ -103,6 +107,17 @@ public class EmpAction extends ActionSupport {
     empEbi.delete(em);
 
     return "toList";
+  }
+
+  /**
+   * 修改密码
+   * @return
+   */
+  public String changePwd(){
+    empEbi.changePwd(oldPwd, newPwd);
+    //清除session里面的登录数据
+    ActionContext.getContext().getSession().remove(EmpModel.LOGIN_EMP_INFO);
+    return "login";
   }
 
   private void prepareDeptList() {

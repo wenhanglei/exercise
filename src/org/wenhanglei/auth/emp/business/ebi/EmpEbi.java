@@ -61,4 +61,11 @@ public interface EmpEbi {
    * @param em
    */
   void delete(EmpModel em);
+
+  /**
+   * 修改密码
+   * @param oldPwd
+   * @param newPwd
+   */
+  void changePwd(String oldPwd, String newPwd);
 }

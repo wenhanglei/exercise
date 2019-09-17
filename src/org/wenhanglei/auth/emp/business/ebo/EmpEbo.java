@@ -1,5 +1,6 @@
 package org.wenhanglei.auth.emp.business.ebo;
 
+import com.opensymphony.xwork2.ActionContext;
 import java.util.Date;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
@@ -121,5 +122,20 @@ public class EmpEbo implements EmpEbi {
     //将员工的关联的部门置空
     em.setDept(null);
     empDao.delete(em);
+  }
+
+  /**
+   * 修改密码
+   */
+  @Override
+  public void changePwd(String oldPwd, String newPwd) {
+    EmpModel loginEmp = (EmpModel) ActionContext.getContext().getSession().get(EmpModel.LOGIN_EMP_INFO);
+    EmpModel perEmp = empDao.findById(loginEmp.getUuid());
+    oldPwd = Md5Util.getMD5String(oldPwd);
+    if(!perEmp.getPwd().equals(oldPwd)){
+      throw new RuntimeException("您输入的密码错误");
+    }
+    perEmp.setPwd(Md5Util.getMD5String(newPwd));
+    empDao.save(perEmp);
   }
 }
